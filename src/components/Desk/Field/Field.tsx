@@ -15,16 +15,19 @@ import Wpawn from '../../../assets/Wpawn.svg'
 
 
 
-type FieldType = {
-    color: 'white' | 'black'
-    x: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h'
-    y: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-    figure?: 'Wpawn' | 'Wrook' | 'Wknight' | 'Wbishop' | 'Wqueen' | 'Wking' | 'Bpawn' | 'Brook' | 'Bknight' | 'Bbishop' | 'Bqueen' | 'Bking'
-}
+// type FieldType = {
+//     color?: 'white' | 'black'
+//     x?: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h'
+//     y?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+//     figure?: 'Wpawn' | 'Wrook' | 'Wknight' | 'Wbishop' | 'Wqueen' | 'Wking' | 'Bpawn' | 'Brook' | 'Bknight' | 'Bbishop' | 'Bqueen' | 'Bking'
+//     handleSelectFigure: any
+// }
 
-const Field = ({color, x, y, figure } : FieldType ) => {
+type FieldType = any
+
+const Field = ({color, x, y, figure, handleSelectFigure } : FieldType ) => {
     return (
-        <div className={color} onClick={() => console.log(`${x} - ${y} - ${figure}`)}>
+        <div className={color} onClick={() => handleSelectFigure({x, y, figure})}>
             {figure === 'Brook' && <img src={Brook} style={{width: '100%'}} />}
             {figure === 'Bknight' && <img src={Bknight} style={{width: '100%'}} />}
             {figure === 'Bbishop' && <img src={Bbishop} style={{width: '100%'}} />}
