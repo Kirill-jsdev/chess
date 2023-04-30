@@ -32,7 +32,7 @@ const Board = () => {
                 const newBoardState = structuredClone(prev)
 
                 if(selectedFigure.figure && prevSelectedFigure.figure && prevSelectedFigureString !== selectedFigureString) {
-                    newBoardState[selectedFigure?.x + selectedFigure?.y] = {...selectedFigure, color: selectedFigure?.color, figure: prevSelectedFigure.figure }
+                    newBoardState[selectedFigure?.x + selectedFigure?.y] = {...selectedFigure, figure: prevSelectedFigure.figure }
                     newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined, x: undefined, y: undefined}
                     setSelectedFigure(undefined)
                     setPrevSelectedFigure(undefined)
