@@ -12,6 +12,7 @@ const Board = () => {
 
     const boardStateString = boardState ? JSON.stringify(boardState) : JSON.stringify({})
     const prevSelectedFigureString = prevSelectedFigure ? JSON.stringify(prevSelectedFigure) : JSON.stringify({})
+    const selectedFigureString = selectedFigure ? JSON.stringify(selectedFigure) : JSON.stringify({})
 
     const handleSelectFigure = (selected: any) => {
         setSelectedFigure((prev: any) => {
@@ -24,18 +25,33 @@ const Board = () => {
     useEffect(() => {
         const boardState = JSON.parse(boardStateString)
         const prevSelectedFigure = JSON.parse(prevSelectedFigureString)
+        const selectedFigure = JSON.parse(selectedFigureString)
         console.log(boardState)
         if(prevSelectedFigure?.figure) {
             setBoardState(prev => {
                 const newBoardState = structuredClone(prev)
 
-                newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
-                newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
+                if(selectedFigure.figure && prevSelectedFigure.figure && prevSelectedFigureString !== selectedFigureString) {
+                    newBoardState[selectedFigure?.x + selectedFigure?.y] = {...selectedFigure, color: selectedFigure?.color, figure: prevSelectedFigure.figure }
+                    newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined, x: undefined, y: undefined}
+                    setSelectedFigure(undefined)
+                    setPrevSelectedFigure(undefined)
+                } else if (selectedFigure.figure && prevSelectedFigure.figure && prevSelectedFigureString === selectedFigureString) {
+                    // setSelectedFigure(undefined)
+                    setPrevSelectedFigure(undefined)
+                    // newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
+                    // newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
+                } else {
+                    newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
+                    newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
+                }
+
+
                 setPrevSelectedFigure(undefined)
                 return newBoardState
             })
         }
-    }, [boardStateString, prevSelectedFigureString, selectedFigure?.color, selectedFigure?.x, selectedFigure?.y])
+    }, [boardStateString, prevSelectedFigureString, selectedFigureString])
 
     console.log(selectedFigure)
 
