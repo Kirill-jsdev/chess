@@ -33,14 +33,12 @@ const Board = () => {
 
                 if(selectedFigure.figure && prevSelectedFigure.figure && prevSelectedFigureString !== selectedFigureString) {
                     newBoardState[selectedFigure?.x + selectedFigure?.y] = {...selectedFigure, figure: prevSelectedFigure.figure }
-                    newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined, x: undefined, y: undefined}
+                    newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
                     setSelectedFigure(undefined)
                     setPrevSelectedFigure(undefined)
                 } else if (selectedFigure.figure && prevSelectedFigure.figure && prevSelectedFigureString === selectedFigureString) {
-                    // setSelectedFigure(undefined)
+                    setSelectedFigure(undefined)
                     setPrevSelectedFigure(undefined)
-                    // newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
-                    // newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
                 } else {
                     newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
                     newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
