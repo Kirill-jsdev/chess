@@ -27,7 +27,7 @@ type FieldType = any
 
 const Field = ({color, x, y, figure, handleSelectFigure } : FieldType ) => {
     return (
-        <div className={color} onClick={() => handleSelectFigure({x, y, figure, color})}>
+        <div className={`${color} board-field`} onClick={() => handleSelectFigure({x, y, figure, color})}>
             {figure === 'Brook' && <img src={Brook} style={{width: '100%'}} />}
             {figure === 'Bknight' && <img src={Bknight} style={{width: '100%'}} />}
             {figure === 'Bbishop' && <img src={Bbishop} style={{width: '100%'}} />}
