@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './Board.css'
 import Field from './Field/Field'
 
@@ -6,16 +6,36 @@ import Field from './Field/Field'
 const Board = () => {
 
     const [selectedFigure, setSelectedFigure] = useState<any>()
+    const [prevSelectedFigure, setPrevSelectedFigure] = useState<any>()
 
     const [boardState, setBoardState] = useState(initialBoardState)
 
+    const boardStateString = boardState ? JSON.stringify(boardState) : JSON.stringify({})
+    const prevSelectedFigureString = prevSelectedFigure ? JSON.stringify(prevSelectedFigure) : JSON.stringify({})
 
     const handleSelectFigure = (selected: any) => {
-        if (selected.figure)
-            setSelectedFigure(selected)
-        else
-            setSelectedFigure(null)
+        setSelectedFigure((prev: any) => {
+            const current = structuredClone(selected)
+            setPrevSelectedFigure(prev)
+            return current
+        })
     }
+
+    useEffect(() => {
+        const boardState = JSON.parse(boardStateString)
+        const prevSelectedFigure = JSON.parse(prevSelectedFigureString)
+        console.log(boardState)
+        if(prevSelectedFigure?.figure) {
+            setBoardState(prev => {
+                const newBoardState = structuredClone(prev)
+
+                newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
+                newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
+                setPrevSelectedFigure(undefined)
+                return newBoardState
+            })
+        }
+    }, [boardStateString, prevSelectedFigureString, selectedFigure?.color, selectedFigure?.x, selectedFigure?.y])
 
     console.log(selectedFigure)
 
