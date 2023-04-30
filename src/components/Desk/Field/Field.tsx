@@ -29,7 +29,7 @@ const Field = ({color, x, y, figure, handleSelectFigure } : FieldType ) => {
     return (
         <div className={`${color} board-field`} onClick={() => handleSelectFigure({x, y, figure, color})}>
             {figure === 'Brook' && <img src={Brook} style={{width: '100%'}} />}
-            {figure === 'Bknight' && <img src={Bknight} style={{width: '100%'}} />}
+            {figure === 'Bknight' && <img src={Bknight} style={{width: '100%'}} draggable onDragStart={(e) => console.log(e)} />}
             {figure === 'Bbishop' && <img src={Bbishop} style={{width: '100%'}} />}
             {figure === 'Bqueen' && <img src={Bqueen} style={{width: '100%'}} />}
             {figure === 'Bking' && <img src={Bking} style={{width: '100%'}} />}
