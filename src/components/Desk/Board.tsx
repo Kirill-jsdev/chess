@@ -7,6 +7,8 @@ const Board = () => {
 
     const [selectedFigure, setSelectedFigure] = useState<any>()
 
+    const [boardState, setBoardState] = useState(initialBoardState)
+
 
     const handleSelectFigure = (selected: any) => {
         if (selected.figure)
@@ -19,84 +21,84 @@ const Board = () => {
 
     return <div className='chess-board'>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h8}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h7}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h6}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h5}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h4}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h3}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h2}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.a1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.b1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.c1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.d1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.e1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.f1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.g1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...initialPosition.h1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h1}/>
 
     </div>
 }
 
 export default Board
 
-const initialPosition = {
+const initialBoardState = {
     a1: {color:'black', x: 'a', y:1, figure: 'Wrook'},
     b1: {color:'white', x: 'b', y:1, figure: 'Wknight'},
     c1: {color:'black', x: 'c', y:1, figure: 'Wbishop'},
