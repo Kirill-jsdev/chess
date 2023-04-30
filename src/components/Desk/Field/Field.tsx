@@ -25,39 +25,38 @@ import Wpawn from '../../../assets/Wpawn.svg'
 
 type FieldType = any
 
-const Field = ({color, x, y, figure, handleSelectFigure } : FieldType ) => {
+const Field = ({color, x, y, figure, handleSelectFigure, setPrevSelectedFigure } : FieldType ) => {
 
     const handleDrag = (e: React.DragEvent, figure: any) => {
         e.dataTransfer.setData('figure', figure)
-        console.log(figure)
+        setPrevSelectedFigure(JSON.parse(figure))
     }
 
     const handleDragOver = (e: React.DragEvent) => {
         e.preventDefault()
+
     }
 
     const handleOnDrop = (e: React.DragEvent) => {
-        console.log('I AM ON DROP HANDLER')
-        const data = e.dataTransfer.getData('figure')
-        console.log('DATA', data)
-        handleSelectFigure(JSON.parse(data))
+        const data = JSON.parse(e.dataTransfer.getData('figure'))
+        handleSelectFigure({x, y, figure: data.figure, color})
     }
 
     return (
         <div className={`${color} board-field`} onClick={() => handleSelectFigure({x, y, figure, color})} onDrop={handleOnDrop} onDragOver={handleDragOver}>
-            {figure === 'Brook' && <img src={Brook} style={{width: '100%'}} />}
+            {figure === 'Brook' && <img src={Brook} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
             {figure === 'Bknight' && <img src={Bknight} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
-            {figure === 'Bbishop' && <img src={Bbishop} style={{width: '100%'}} />}
-            {figure === 'Bqueen' && <img src={Bqueen} style={{width: '100%'}} />}
-            {figure === 'Bking' && <img src={Bking} style={{width: '100%'}} />}
-            {figure === 'Bpawn' && <img src={Bpawn} style={{width: '100%'}} />}
+            {figure === 'Bbishop' && <img src={Bbishop} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Bqueen' && <img src={Bqueen} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Bking' && <img src={Bking} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Bpawn' && <img src={Bpawn} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
 
-            {figure === 'Wrook' && <img src={Wrook} style={{width: '100%'}} />}
-            {figure === 'Wknight' && <img src={Wknight} style={{width: '100%'}} />}
-            {figure === 'Wbishop' && <img src={Wbishop} style={{width: '100%'}} />}
-            {figure === 'Wqueen' && <img src={Wqueen} style={{width: '100%'}} />}
-            {figure === 'Wking' && <img src={Wking} style={{width: '100%'}} />}
-            {figure === 'Wpawn' && <img src={Wpawn} style={{width: '100%'}} />}
+            {figure === 'Wrook' && <img src={Wrook} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Wknight' && <img src={Wknight} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Wbishop' && <img src={Wbishop} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Wqueen' && <img src={Wqueen} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Wking' && <img src={Wking} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
+            {figure === 'Wpawn' && <img src={Wpawn} style={{width: '100%'}} draggable onDragStart={(e) => handleDrag(e, JSON.stringify({x, y, figure, color}))} />}
         </div>
     )
 }

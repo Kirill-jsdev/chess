@@ -27,7 +27,7 @@ const Board = () => {
         const prevSelectedFigure = JSON.parse(prevSelectedFigureString)
         const selectedFigure = JSON.parse(selectedFigureString)
         console.log(boardState)
-        if(prevSelectedFigure?.figure) {
+        if(prevSelectedFigure?.figure && selectedFigure?.figure) {
             setBoardState(prev => {
                 const newBoardState = structuredClone(prev)
 
@@ -53,6 +53,22 @@ const Board = () => {
                 setPrevSelectedFigure(undefined)
                 return newBoardState
             })
+        } else { 
+            setBoardState(prev => {
+                const newBoardState = structuredClone(prev)
+                if (prevSelectedFigure.figure) {
+                    // newBoardState[selectedFigure?.x + selectedFigure?.y] = {...prevSelectedFigure, color: selectedFigure?.color }
+                newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
+                setPrevSelectedFigure(undefined)
+
+                } else if (selectedFigure.figure) {
+                    newBoardState[selectedFigure?.x + selectedFigure?.y] = {...selectedFigure, color: selectedFigure?.color }
+                    setSelectedFigure(undefined)
+
+                }
+                // newBoardState[prevSelectedFigure?.x + prevSelectedFigure?.y] = {...prevSelectedFigure, figure: undefined}
+            return newBoardState
+            })
         }
     }, [boardStateString, prevSelectedFigureString, selectedFigureString])
 
@@ -60,77 +76,77 @@ const Board = () => {
 
     return <div className='chess-board'>
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f8}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g8}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a8}  setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b8}  setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c8}  setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d8}  setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e8}  setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f8}  setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g8}  setPrevSelectedFigure={setPrevSelectedFigure} />
         <Field handleSelectFigure={handleSelectFigure} {...boardState.h8}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g7}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h7}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h7}  setPrevSelectedFigure={setPrevSelectedFigure}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g6}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h6}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h6}  setPrevSelectedFigure={setPrevSelectedFigure}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g5}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h5}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h5}  setPrevSelectedFigure={setPrevSelectedFigure}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g4}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h4}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g4} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h4} setPrevSelectedFigure={setPrevSelectedFigure} />
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g3}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h3}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h3}  setPrevSelectedFigure={setPrevSelectedFigure}/>
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g2}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h2}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g2} setPrevSelectedFigure={setPrevSelectedFigure} />
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h2} setPrevSelectedFigure={setPrevSelectedFigure} />
 
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.a1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.b1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.c1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.d1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.e1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.f1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.g1}/>
-        <Field handleSelectFigure={handleSelectFigure} {...boardState.h1}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.a1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.b1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.c1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.d1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.e1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.f1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.g1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
+        <Field handleSelectFigure={handleSelectFigure} {...boardState.h1}  setPrevSelectedFigure={setPrevSelectedFigure}/>
 
     </div>
 }
