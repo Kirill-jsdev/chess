@@ -1,0 +1,21 @@
+.board-field {
+    height: 100%;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+
+.white {
+    height: 100%;
+    width: 100%;
+    background-color: #eeeed2;
+    display: grid;
+    place-items: center;
+}
+
+.black {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #769656;
+}
